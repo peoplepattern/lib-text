@@ -1,4 +1,4 @@
-name := "datasci-lib-text"
+name := "lib-text"
 
 organization := "com.peoplepattern"
 
