@@ -2,6 +2,8 @@
 
 A little text processing library for Scala.
 
+[![Build Status](https://travis-ci.org/peoplepattern/lib-text.svg?branch=master)](https://travis-ci.org/peoplepattern/lib-text)
+
 ## Overview
 
 This is a little text processing library which supports language
