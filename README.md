@@ -50,7 +50,7 @@ txt.tokens
 // Vector(Did, you, get, your, personalised, print, with, your, copy, of, #MadeintheAM, on, Black, Friday, ?, If, not, ,, there's, still, time, !, http://www.myplaydirect.com/one-direction)
 
 txt.terms
-//  Set(print, personalised, black, copy, friday, time)
+// Set(print, personalised, black, copy, friday, time)
 
 txt.termsPlus
 // Set(print, personalised, black, #madeintheam, copy, friday, time)
@@ -65,6 +65,6 @@ lib-text is open source and licensed under the [Apache License 2.0](LICENSE.txt)
 
 ## Acknowledgements
 
-Developed with love at [People Pattern Corporation](https://peoplepattern.com)
+Developed with :heart: at [People Pattern Corporation](https://peoplepattern.com)
 
 [![People Pattern logo](pp.png)](https://peoplepattern.com)
