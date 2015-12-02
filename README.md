@@ -36,6 +36,29 @@ libraryDependencies += "com.peoplepattern" %% "lib-text" % VERSION
 ```
 where VERSION = the current version (e.g. "0.1")
 
+## Example
+
+```scala
+scala> import com.peoplepattern.text.Implicits._
+
+scala> val txt = "Did you get your personalised print with your copy of #MadeintheAM on Black Friday? If not, there's still time! http://www.myplaydirect.com/one-direction"
+txt: String = Did you get your personalised print with your copy of #MadeintheAM on Black Friday? If not, there's still time! http://www.myplaydirect.com/one-direction
+
+scala> txt.lang
+res1: Option[String] = Some(en)
+
+scala> txt.tokens
+res2: Vector[String] = Vector(Did, you, get, your, personalised, print, with, your, copy, of, #MadeintheAM, on, Black, Friday, ?, If, not, ,, there's, still, time, !, http://www.myplaydirect.com/one-direction)
+
+scala> txt.terms
+res3: Set[String] = Set(print, personalised, black, copy, friday, time)
+
+scala> txt.termsPlus
+res4: Set[String] = Set(print, personalised, black, #madeintheam, copy, friday, time)
+
+scala> txt.termBigrams
+res5: Set[String] = Set(black friday, personalised print)
+```
 
 ## License
 

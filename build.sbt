@@ -39,4 +39,10 @@ bintrayRepository := "releases"
 
 publishMavenStyle := false
 
-fork := true
+site.settings
+
+ghpages.settings
+
+git.remoteRepo := "git@github.com:peoplepattern/lib-text.git"
+
+site.jekyllSupport()
