@@ -35,10 +35,6 @@ releaseCrossBuild := true
 
 bintrayOrganization := Some("peoplepattern")
 
-bintrayRepository := "releases"
-
-publishMavenStyle := false
-
 site.settings
 
 ghpages.settings

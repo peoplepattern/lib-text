@@ -30,7 +30,7 @@ More to come.
 Add to your project dependencies:
 
 ```scala
-resolvers += Resolver.url("peoplepattern-levar", url("https://dl.bintray.com/peoplepattern/releases/"))(Resolver.ivyStylePatterns))
+resolvers += "peoplepattern" at "https://dl.bintray.com/peoplepattern/maven/"
 
 libraryDependencies += "com.peoplepattern" %% "lib-text" % VERSION
 ```
