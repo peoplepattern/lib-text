@@ -35,6 +35,8 @@ releaseCrossBuild := true
 
 bintrayOrganization := Some("peoplepattern")
 
+bintrayReleaseOnPublish := true
+
 site.settings
 
 ghpages.settings
