@@ -3,6 +3,7 @@
 A little text processing library for Scala.
 
 [![Build Status](https://travis-ci.org/peoplepattern/lib-text.svg?branch=master)](https://travis-ci.org/peoplepattern/lib-text)
+[![Coverage Status](https://coveralls.io/repos/peoplepattern/lib-text/badge.svg?branch=master&service=github)](https://coveralls.io/github/peoplepattern/lib-text?branch=master)
 
 ## Overview
 
