@@ -1,5 +1,8 @@
 # Change Log
 
+## [Unreleased]
+- Preliminary Arabic support
+
 ## [0.1] - 2015-12-02
 
 ### Added

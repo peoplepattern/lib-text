@@ -26,6 +26,7 @@ cleanly. Stopword filtering is currently supported for
 - Portuguese
 - Swedish
 - Turkish
+- Arabic
 
 More to come.
 
