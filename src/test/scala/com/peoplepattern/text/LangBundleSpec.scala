@@ -4,6 +4,22 @@ package com.peoplepattern.text
 import org.scalatest._
 
 class LangBundleSpec extends FunSpec with Matchers {
+  describe("LangBundle") {
+    it("should have a bundle available for each of the declared languages") {
+      for (lang <- LangBundle.langs) {
+        assert(LangBundle.bundleForLang(Some(lang)) != LangBundle.unk)
+      }
+    }
+  }
+
+  describe("LangBundle.unk") {
+    it("should have all the other languages' stopwords indexed") {
+      for (lang <- LangBundle.langs) {
+        assert(LangBundle.bundleForLang(Some(lang)).stopwords.subsetOf(LangBundle.unk.stopwords))
+      }
+    }
+  }
+
   describe("LangBundle.en.tokenize") {
     it("should be able to tokenize a Tweet") {
       val tweet = "Gronk makes history: 1st player to have multiple games of 3 or more receiving TDs @RobGronkowski #crazyfootballmomma  @NFL 🔥🏈🔥🏈 #ballout"
@@ -68,6 +84,29 @@ class LangBundleSpec extends FunSpec with Matchers {
     }
   }
 
+  describe("LangBundle.en.termsPlus") {
+    it("should not throw out hashtags and @-mentions") {
+      val tweet = "Gronk makes history: 1st player to have multiple games of 3 or more receiving TDs @RobGronkowski #crazyfootballmomma  @NFL 🔥🏈🔥🏈 #ballout"
+
+      val expected = Set(
+        "gronk",
+        "makes",
+        "history",
+        "player",
+        "multiple",
+        "games",
+        "receiving",
+        "tds",
+        "@robgronkowski",
+        "#crazyfootballmomma",
+        "@nfl",
+        "#ballout"
+      )
+
+      assert(LangBundle.en.termsPlus(tweet) === expected)
+    }
+  }
+
   describe("LangBundle.en.termBigrams") {
     it("should be able to get term bigrams from Tweets") {
       val tweet = "Gronk makes history: 1st player to have multiple games of 3 or more receiving TDs @RobGronkowski #crazyfootballmomma  @NFL 🔥🏈🔥🏈 #ballout"
@@ -79,12 +118,19 @@ class LangBundleSpec extends FunSpec with Matchers {
         "receiving tds"
       )
 
-      val actual = LangBundle.en.termBigrams(tweet)
+      assert(LangBundle.en.termBigrams(tweet) === expected)
+      assert(LangBundle.en.termBigrams(LangBundle.en.tokens(tweet)) === expected)
+    }
+  }
 
-      info(s"tweet = ${tweet}")
-      info(s"termBigrams = ${actual}")
+  describe("LangBundle.en.termTrigrams") {
+    it("should be able to get term bigrams from Tweets") {
+      val tweet = "Gronk makes history: 1st player to have multiple games of 3 or more receiving TDs @RobGronkowski #crazyfootballmomma  @NFL 🔥🏈🔥🏈 #ballout"
 
-      assert(actual === expected)
+      val expected = Set("gronk makes history")
+
+      assert(LangBundle.en.termTrigrams(tweet) === expected)
+      assert(LangBundle.en.termTrigrams(LangBundle.en.tokens(tweet)) === expected)
     }
   }
 }
