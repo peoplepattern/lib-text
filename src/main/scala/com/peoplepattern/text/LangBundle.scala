@@ -188,6 +188,7 @@ object LangBundle {
   lazy val pt = mkBundle("pt")
   lazy val sv = mkBundle("sv")
   lazy val tr = mkBundle("tr")
+  lazy val ar = mkBundle("ar")
 
   def langs = Set(
     "de",
@@ -200,7 +201,8 @@ object LangBundle {
     "nl",
     "pt",
     "sv",
-    "tr"
+    "tr",
+    "ar"
   )
 
   lazy val unk = {
@@ -222,6 +224,7 @@ object LangBundle {
     case Some("pt") => pt
     case Some("sv") => sv
     case Some("tr") => tr
+    case Some("ar") => ar
     case _ => unk
   }
 }
