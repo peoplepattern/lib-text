@@ -11,7 +11,7 @@ identification, tokenization, stopword filtering and provides some
 useful helper functions. The tokenization has been tuned to work
 well with text conventions commonly used in social media such as
 Twitter, and supports URLs, emoji, hashtags, emails and @-mentions
-cleanly. Stopword filtering is currently suppported for
+cleanly. Stopword filtering is currently supported for
 
 - German
 - English

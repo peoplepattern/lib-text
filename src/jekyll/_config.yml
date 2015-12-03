@@ -1,0 +1,25 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               lib-text
+tagline:             'A little text processing library'
+description:         'A text processing library in Scala. Made at <a href="http://www.peoplepattern.com" target="_blank">People Pattern</a>.'
+url:                 http://peoplepattern.github.io/lib-text
+baseurl:             '/lib-text'
+
+# About/contact
+author:
+  name:              Elias Ponvert
+  url:               https://eponvert.github.io
+  email:             elias@peoplepattern.com
+
+# Custom vars
+
+version:             0.1
+
+github:
+  repo:              https://github.com/peoplepattern/lib-text

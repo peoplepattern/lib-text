@@ -75,3 +75,4 @@ nodes
 .vagrant
 .bundle
 chef.json
+_site
