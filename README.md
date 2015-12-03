@@ -4,6 +4,7 @@ A little text processing library for Scala.
 
 [![Build Status](https://travis-ci.org/peoplepattern/lib-text.svg?branch=master)](https://travis-ci.org/peoplepattern/lib-text)
 [![Coverage Status](https://coveralls.io/repos/peoplepattern/lib-text/badge.svg?branch=master&service=github)](https://coveralls.io/github/peoplepattern/lib-text?branch=master)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/peoplepattern/lib-text?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## Overview
 
