@@ -39,6 +39,8 @@ bintrayReleaseOnPublish := true
 
 site.settings
 
+site.includeScaladoc()
+
 ghpages.settings
 
 git.remoteRepo := "git@github.com:peoplepattern/lib-text.git"
