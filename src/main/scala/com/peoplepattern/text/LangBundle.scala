@@ -81,14 +81,18 @@ trait LangBundle {
     b.toVector
   }
 
+  /** Language specific stopwords */
   def stopwords: Set[String]
 
+  /** Whether the string is probably a linguistic term with meaning */
   def isContentTerm(term: String) = {
     term.forall(_.isLetter) && !stopwords(term.toLowerCase)
   }
 
+  /** Tokenize the string and extract the set of terms */
   def terms(text: String): Set[String] = terms(tokens(text))
 
+  /** Extract terms from the sequence of tokens */
   def terms(tokens: Seq[String]): Set[String] = {
     tokens.filter(isContentTerm).map(_.toLowerCase).toSet
   }
@@ -97,21 +101,23 @@ trait LangBundle {
     c.isLetter || c.isDigit || c == '_'
   }
 
+  /** Whether the string can could be a social media hashtag */
   def isHashtag(term: String) = {
     term.size >= 2 && term(0) == '#' && term.tail.forall(isSocialThingChar)
   }
 
+  /** Whether the string could be a social media @-mention */
   def isMention(term: String) = {
     term.size >= 2 && term(0) == '@' && term.tail.forall(isSocialThingChar)
   }
 
   /**
-   * Word-only terms plus hashtags, emoji, @-mentions
+   * Tokenize the string and extract terms plus hashtags, emoji, @-mentions
    */
   def termsPlus(text: String): Set[String] = termsPlus(tokens(text))
 
   /**
-   * Word-only terms plus hashtags, emoji, @-mentions
+   * Extract terms plus hashtags, emoji, @-mentions from the token sequence
    */
   def termsPlus(tokens: Seq[String]): Set[String] = {
     tokens.filter(w =>
@@ -119,10 +125,30 @@ trait LangBundle {
     ).map(_.toLowerCase).toSet
   }
 
+  /**
+   * Extract the set of term-only n-grams from the text
+   *
+   * For example from the text "this is the winning team" only the bigram
+   * "winning team" would be extracted
+   *
+   * @param text the text to extract n-grams from
+   * @param min the minimum length of extracted n-grams
+   * @param max the maximum length of extracted n-grams
+   */
   def termNgrams(text: String, min: Int, max: Int): Set[String] = {
     termNgrams(tokens(text), min, max)
   }
 
+  /**
+   * Extract the set of term-only n-grams from the token sequence
+   *
+   * For example from the text "this is the winning team" only the bigram
+   * "winning team" would be extracted
+   *
+   * @param tokens the token sequence to extract n-grams from
+   * @param min the minimum length of extracted n-grams
+   * @param max the maximum length of extracted n-grams
+   */
   def termNgrams(tokens: Seq[String], min: Int, max: Int): Set[String] = {
     val seqs = Buffer.empty[Vector[String]]
     val thisbf = Buffer.empty[String]
@@ -144,24 +170,57 @@ trait LangBundle {
     termNgrams.toSet
   }
 
+  /**
+   * Extract the set of term-only bigrams from the text
+   *
+   * For example from the text "this is the winning team" only the bigram
+   * "winning team" would be extracted
+   *
+   * @param text the text to extract n-grams from
+   */
   def termBigrams(text: String) = termNgrams(text, 2, 2)
 
+  /**
+   * Extract the set of term-only bigrams from the token sequence
+   *
+   * For example from the text "this is the winning team" only the bigram
+   * "winning team" would be extracted
+   *
+   * @param tokens the token sequence to extract n-grams from
+   */
   def termBigrams(tokens: Seq[String]) = termNgrams(tokens, 2, 2)
 
+  /**
+   * Extract the set of term-only bigrams from the text
+   *
+   * For example from the text "this is red sox nation" only the trigram
+   * "red sox nation" would be extracted
+   *
+   * @param text the text to extract n-grams from
+   */
   def termTrigrams(text: String) = termNgrams(text, 3, 3)
 
+  /**
+   * Extract the set of term-only bigrams from the text
+   *
+   * For example from the text "this is red sox nation" only the trigram
+   * "red sox nation" would be extracted
+   *
+   * @param tokens the token sequence to extract n-grams from
+   */
   def termTrigrams(tokens: Seq[String]) = termNgrams(tokens, 3, 3)
 }
 
+/** Helpers and language-specifi [[LangBundle]]s **/
 object LangBundle {
 
   import scala.io.Source
 
-  def srcFromResource(path: String) = {
+  private def srcFromResource(path: String) = {
     Source.fromInputStream(getClass.getResourceAsStream(path))
   }
 
-  def stopwords(lang: String) = {
+  private def stopwords(lang: String) = {
     val src = srcFromResource(s"/$lang/stopwords.txt")
     try {
       src.getLines.toSet
@@ -170,26 +229,54 @@ object LangBundle {
     }
   }
 
-  def mkBundle(lang: String) = {
+  private def mkBundle(lang: String) = {
     val stops = stopwords(lang)
     new LangBundle {
       val stopwords = stops
     }
   }
 
+  /** The [[LangBundle]] for German */
   lazy val de = mkBundle("de")
+
+  /** The [[LangBundle]] for English */
   lazy val en = mkBundle("en")
+
+  /** The [[LangBundle]] for Spanish */
   lazy val es = mkBundle("es")
+
+  /** The [[LangBundle]] for French */
   lazy val fr = mkBundle("fr")
+
+  /** The [[LangBundle]] for Indonesian */
   lazy val in = mkBundle("in")
-  lazy val ja = mkBundle("ja") // TODO improved tokenizer
+
+  /**
+   * The [[LangBundle]] for Japanese
+   *
+   * TODO improved tokenizer
+   */
+  lazy val ja = mkBundle("ja")
+
+  /** The [[LangBundle]] for Malay */
   lazy val ms = mkBundle("ms")
+
+  /** The [[LangBundle]] for Dutch */
   lazy val nl = mkBundle("nl")
+
+  /** The [[LangBundle]] for Portuguese */
   lazy val pt = mkBundle("pt")
+
+  /** The [[LangBundle]] for Swedish */
   lazy val sv = mkBundle("sv")
+
+  /** The [[LangBundle]] for Turkish */
   lazy val tr = mkBundle("tr")
+
+  /** The [[LangBundle]] for Armenian */
   lazy val ar = mkBundle("ar")
 
+  /** The set of supported languages */
   def langs = Set(
     "de",
     "en",
@@ -205,6 +292,11 @@ object LangBundle {
     "ar"
   )
 
+  /**
+   * A language bundle for text for which we don't have an identified language
+   *
+   * Uses all known stopwords
+   */
   lazy val unk = {
     val stops: Set[String] = langs.flatMap(stopwords)
     new LangBundle {
@@ -212,6 +304,11 @@ object LangBundle {
     }
   }
 
+  /**
+   * Look up the [[LangBundle]] by language code
+   *
+   * @param lang two-letter ISO 639-1 language code
+   */
   def bundleForLang(lang: Option[String]): LangBundle = lang match {
     case Some("de") => de
     case Some("en") => en
