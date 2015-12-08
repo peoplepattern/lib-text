@@ -52,12 +52,12 @@ class StringUtilSpec extends FlatSpec {
     val expected = Map(
       " \t" -> 1,
       "\t " -> 1,
+      "\nf" -> 1,
       ".\n" -> 1,
       " K" -> 1,
       " b" -> 1,
-      " f" -> 1,
       " i" -> 2,
-      " o" -> 1,
+      "\to" -> 1,
       " s" -> 1,
       "Kn" -> 1,
       "bo" -> 1,
@@ -76,6 +76,7 @@ class StringUtilSpec extends FlatSpec {
       "x " -> 1,
       "x\t" -> 1,
       "x." -> 1)
+    assert(StringUtil.charNgrams(testStr, 2, 2) == expected)
   }
 
   it should "extract bigrams and trigrams with (2, 3)" in {

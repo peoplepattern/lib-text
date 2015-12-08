@@ -51,7 +51,7 @@ object Implicits {
     def charNgrams(min: Int, max: Int): Map[String, Int] = StringUtil.charNgrams(str, min, max)
 
     /** Extract counts of the char bigrams in the string */
-    def charBigrams(s: String): Map[String, Int] = charNgrams(2, 2)
+    def charBigrams: Map[String, Int] = charNgrams(2, 2)
 
     /** The term as a URL, if it can be parsed as such */
     lazy val asUrl: Option[URL] = try {
