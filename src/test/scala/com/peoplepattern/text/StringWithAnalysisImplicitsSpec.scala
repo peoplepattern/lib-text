@@ -3,6 +3,7 @@ package com.peoplepattern.text
 // ScalaTest
 import org.scalatest._
 import com.peoplepattern.text.Implicits._
+import java.net.URL
 
 class StringWithAnalysisImplicitSpec extends FunSpec with Matchers {
   describe("str.tokenize") {
@@ -71,6 +72,14 @@ class StringWithAnalysisImplicitSpec extends FunSpec with Matchers {
       )
 
       assert(tweet.termBigrams === expected)
+    }
+  }
+
+  describe("str.termTrigrams") {
+    it("should be able to get term trigrams from Tweets") {
+      val tweet = "Gronk makes history: 1st player to have multiple games of 3 or more receiving TDs @RobGronkowski #crazyfootballmomma  @NFL 🔥🏈🔥🏈 #ballout"
+      val expected = Set("gronk makes history")
+      assert(tweet.termTrigrams === expected)
     }
   }
 
@@ -253,6 +262,55 @@ class StringWithAnalysisImplicitSpec extends FunSpec with Matchers {
     it("should produce the same output as charNgrams(2, 2)") {
       val testStr = "Knox on fox in socks in box."
       assert(testStr.charBigrams == testStr.charNgrams(2, 2))
+    }
+  }
+
+  describe("str.asUrl") {
+    it("should correctly transform a URL string to a URL") {
+      assert("http://google.com".asUrl == Some(new URL("http://google.com")))
+    }
+
+    it("should convert a non-URL to None") {
+      assert("hello".asUrl == None)
+    }
+  }
+
+  val cnnUrlNoQuery = "http://money.cnn.com/video/technology/2015/11/30/tech-gift-guide-selfie-gadgets.cnnmoney/index.html"
+  val dollarShaveClubUrl = "http://try.dollarshaveclub.com/disrupt-out-desk5/?utm_medium=display&utm_source=outbrain&utm_campaign=disrupt-5&utm_content=meet-man&utm_term=46032174&cvosrc=display.outbrain.disrupt-5_meet-man"
+  val githubUrlWithSsl = "https://peoplepattern.github.io/lib-text/"
+
+  describe("str.isUrl") {
+    it("should predict URLs are URLs") {
+      assert(cnnUrlNoQuery.isUrl)
+      assert(dollarShaveClubUrl.isUrl)
+      assert(githubUrlWithSsl.isUrl)
+    }
+
+    it("should predict obviously non-URLs are not") {
+      assert(!"hello".isUrl)
+      assert(!"this.is.the".isUrl)
+    }
+  }
+
+  describe("str.simplifyUrl") {
+    it("should by default extract URL host and part of the path") {
+      assert(cnnUrlNoQuery.simplifiedUrl == Some("money.cnn.com/video"))
+      assert(dollarShaveClubUrl.simplifiedUrl == Some("try.dollarshaveclub.com/disrupt-out-desk5"))
+      assert(githubUrlWithSsl.simplifiedUrl == Some("peoplepattern.github.io/lib-text"))
+    }
+  }
+
+  describe("str.asOpt") {
+    it("should convert non-blank string to Some") {
+      assert("hello".asOpt == Some("hello"))
+    }
+
+    it("should convert null to None") {
+      assert(null.asInstanceOf[String].asOpt == None)
+    }
+
+    it("should convert only white-space strings to None") {
+      assert(" \n\t\t ".asOpt == None)
     }
   }
 }

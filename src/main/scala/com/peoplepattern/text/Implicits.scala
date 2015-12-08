@@ -64,7 +64,7 @@ object Implicits {
     lazy val simplifiedUrl: Option[String] = asUrl.map(StringUtil.simplifyUrl)
 
     /** Whether the string can be parsed as a URL */
-    def isURL: Boolean = asUrl.nonEmpty
+    def isUrl: Boolean = asUrl.nonEmpty
 
     /** Some(this) if the string is non-empty and doesn't contain only white-space */
     def asOpt: Option[String] = StringUtil.asOpt(str)
