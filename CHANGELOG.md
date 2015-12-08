@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 - Preliminary Arabic support
+- String utilities for URLs, char n-grams and white-space
 
 ## [0.1] - 2015-12-02
 
