@@ -20,7 +20,7 @@ class LangBundleSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("LangBundle.en.tokenize") {
+  describe("LangBundle(en).tokenize") {
     it("should be able to tokenize a Tweet") {
       val tweet = "Gronk makes history: 1st player to have multiple games of 3 or more receiving TDs @RobGronkowski #crazyfootballmomma  @NFL 🔥🏈🔥🏈 #ballout"
 
@@ -51,7 +51,7 @@ class LangBundleSpec extends FunSpec with Matchers {
         "#ballout"
       )
 
-      val actual = LangBundle.en.tokens(tweet)
+      val actual = LangBundle("en").tokens(tweet)
 
       info(s"tweet = ${tweet}")
       info(s"tokens = ${actual}")
@@ -60,7 +60,7 @@ class LangBundleSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("LangBundle.en.terms") {
+  describe("LangBundle(en).terms") {
     it("should be able to get terms from a Tweet") {
       val tweet = "Gronk makes history: 1st player to have multiple games of 3 or more receiving TDs @RobGronkowski #crazyfootballmomma  @NFL 🔥🏈🔥🏈 #ballout"
 
@@ -75,7 +75,7 @@ class LangBundleSpec extends FunSpec with Matchers {
         "tds"
       )
 
-      val actual = LangBundle.en.terms(tweet)
+      val actual = LangBundle("en").terms(tweet)
 
       info(s"tweet = ${tweet}")
       info(s"terms = ${actual}")
@@ -84,7 +84,7 @@ class LangBundleSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("LangBundle.en.termsPlus") {
+  describe("LangBundle(en).termsPlus") {
     it("should not throw out hashtags and @-mentions") {
       val tweet = "Gronk makes history: 1st player to have multiple games of 3 or more receiving TDs @RobGronkowski #crazyfootballmomma  @NFL 🔥🏈🔥🏈 #ballout"
 
@@ -103,11 +103,11 @@ class LangBundleSpec extends FunSpec with Matchers {
         "#ballout"
       )
 
-      assert(LangBundle.en.termsPlus(tweet) === expected)
+      assert(LangBundle("en").termsPlus(tweet) === expected)
     }
   }
 
-  describe("LangBundle.en.termBigrams") {
+  describe("LangBundle(en).termBigrams") {
     it("should be able to get term bigrams from Tweets") {
       val tweet = "Gronk makes history: 1st player to have multiple games of 3 or more receiving TDs @RobGronkowski #crazyfootballmomma  @NFL 🔥🏈🔥🏈 #ballout"
 
@@ -118,19 +118,19 @@ class LangBundleSpec extends FunSpec with Matchers {
         "receiving tds"
       )
 
-      assert(LangBundle.en.termBigrams(tweet) === expected)
-      assert(LangBundle.en.termBigrams(LangBundle.en.tokens(tweet)) === expected)
+      assert(LangBundle("en").termBigrams(tweet) === expected)
+      assert(LangBundle("en").termBigrams(LangBundle("en").tokens(tweet)) === expected)
     }
   }
 
-  describe("LangBundle.en.termTrigrams") {
+  describe("LangBundle(en).termTrigrams") {
     it("should be able to get term bigrams from Tweets") {
       val tweet = "Gronk makes history: 1st player to have multiple games of 3 or more receiving TDs @RobGronkowski #crazyfootballmomma  @NFL 🔥🏈🔥🏈 #ballout"
 
       val expected = Set("gronk makes history")
 
-      assert(LangBundle.en.termTrigrams(tweet) === expected)
-      assert(LangBundle.en.termTrigrams(LangBundle.en.tokens(tweet)) === expected)
+      assert(LangBundle("en").termTrigrams(tweet) === expected)
+      assert(LangBundle("en").termTrigrams(LangBundle("en").tokens(tweet)) === expected)
     }
   }
 }

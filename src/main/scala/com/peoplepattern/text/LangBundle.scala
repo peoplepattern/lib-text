@@ -215,82 +215,40 @@ trait LangBundle {
 object LangBundle {
 
   import scala.io.Source
+  import com.typesafe.config.ConfigFactory
+  import scala.collection.JavaConversions._
 
-  private def srcFromResource(path: String) = {
-    Source.fromInputStream(getClass.getResourceAsStream(path))
+  val conf = ConfigFactory.load
+
+  private def chkLangCode(code: String) {
+    require("^[a-z]{2}$".r.pattern.matcher(code).matches)
   }
 
-  private def stopwords(lang: String) = {
-    val src = srcFromResource(s"/$lang/stopwords.txt")
-    try {
-      src.getLines.toSet
-    } finally {
-      src.close()
-    }
+  def stopwords(lang: String): Set[String] = {
+    chkLangCode(lang)
+    Set(conf.getStringList(s"lang.$lang.stopwords"): _*)
   }
 
-  private def mkBundle(lang: String) = {
-    val stops = stopwords(lang)
+  def mkBundle(lang: String) = {
     new LangBundle {
-      val stopwords = stops
+      lazy val stopwords = LangBundle.stopwords(lang)
     }
   }
 
-  /** The [[LangBundle]] for German */
-  lazy val de = mkBundle("de")
-
-  /** The [[LangBundle]] for English */
-  lazy val en = mkBundle("en")
-
-  /** The [[LangBundle]] for Spanish */
-  lazy val es = mkBundle("es")
-
-  /** The [[LangBundle]] for French */
-  lazy val fr = mkBundle("fr")
-
-  /** The [[LangBundle]] for Indonesian */
-  lazy val in = mkBundle("in")
-
-  /**
-   * The [[LangBundle]] for Japanese
-   *
-   * TODO improved tokenizer
-   */
-  lazy val ja = mkBundle("ja")
-
-  /** The [[LangBundle]] for Malay */
-  lazy val ms = mkBundle("ms")
-
-  /** The [[LangBundle]] for Dutch */
-  lazy val nl = mkBundle("nl")
-
-  /** The [[LangBundle]] for Portuguese */
-  lazy val pt = mkBundle("pt")
-
-  /** The [[LangBundle]] for Swedish */
-  lazy val sv = mkBundle("sv")
-
-  /** The [[LangBundle]] for Turkish */
-  lazy val tr = mkBundle("tr")
-
-  /** The [[LangBundle]] for Armenian */
-  lazy val ar = mkBundle("ar")
+  private val LangRegx = """^([a-z][a-z])\.stopwords$""".r
 
   /** The set of supported languages */
-  def langs = Set(
-    "de",
-    "en",
-    "es",
-    "fr",
-    "in",
-    "ja",
-    "ms",
-    "nl",
-    "pt",
-    "sv",
-    "tr",
-    "ar"
-  )
+  lazy val langs: Set[String] = conf.getConfig("lang")
+    .entrySet
+    .map(_.getKey)
+    .map { key =>
+      key match {
+        case LangRegx(lang) => Some(lang)
+        case _ => None
+      }
+    }
+    .flatten
+    .toSet
 
   /**
    * A language bundle for text for which we don't have an identified language
@@ -304,24 +262,34 @@ object LangBundle {
     }
   }
 
+  // To update with custom language processing for, e.g. Japanese tokenization,
+  // do something like:
+  //
+  // val jaBundle = new LangBundle { /* custom stuff */ }
+  //
+  // private val langBundles: Map[String, LangBundle] =
+  //   langs.map { lang => lang -> mkBundle(lang) }.toMap + ("ja" -> jaBundle)
+
+  private val langBundles: Map[String, LangBundle] =
+    langs.map { lang => lang -> mkBundle(lang) }.toMap
+
   /**
    * Look up the [[LangBundle]] by language code
    *
-   * @param lang two-letter ISO 639-1 language code
+   * @param langCode two-letter ISO 639-1 language code
+   */
+  def apply(langCode: String) = {
+    chkLangCode(langCode)
+    langBundles.getOrElse(langCode, unk)
+  }
+
+  /**
+   * Look up the [[LangBundle]] by language code
+   *
+   * @param lang two-letter ISO 639-1 language code or None
    */
   def bundleForLang(lang: Option[String]): LangBundle = lang match {
-    case Some("de") => de
-    case Some("en") => en
-    case Some("es") => es
-    case Some("fr") => fr
-    case Some("in") => in
-    case Some("ja") => ja
-    case Some("ms") => ms
-    case Some("nl") => nl
-    case Some("pt") => pt
-    case Some("sv") => sv
-    case Some("tr") => tr
-    case Some("ar") => ar
-    case _ => unk
+    case Some(lang) => apply(lang)
+    case None => unk
   }
 }
