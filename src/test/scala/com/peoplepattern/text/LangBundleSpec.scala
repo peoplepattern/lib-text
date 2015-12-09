@@ -20,6 +20,16 @@ class LangBundleSpec extends FunSpec with Matchers {
     }
   }
 
+  describe("LangBundle(en).isHashtag") {
+    it("should identify #this_is_the_best_day_EVER is a hashtag") {
+      assert(LangBundle("en").isHashtag("#this_is_the_best_day_EVER"))
+    }
+
+    it("should not identify #^*! is a hashtag") {
+      assert(!LangBundle("en").isHashtag("#^*!"))
+    }
+  }
+
   describe("LangBundle(en).tokenize") {
     it("should be able to tokenize a Tweet") {
       val tweet = "Gronk makes history: 1st player to have multiple games of 3 or more receiving TDs @RobGronkowski #crazyfootballmomma  @NFL 🔥🏈🔥🏈 #ballout"
