@@ -20,3 +20,6 @@
 - String implicits wrapping
 - Open source under Apache License 2.0
 - Details to support Travis CI and Bintray publishing
+
+[Unreleased]: https://github.com/peoplepattern/lib-text/compare/v0.2...HEAD
+[0.2]: https://github.com/peoplepattern/lib-text/compare/v0.1...v0.2
