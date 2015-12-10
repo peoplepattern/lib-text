@@ -1,8 +1,14 @@
 # Change Log
 
-## [Unreleased]
+## [0.2] - 2015-12-10
+
+### Added
 - Preliminary Arabic support
 - String utilities for URLs, char n-grams and white-space
+
+### Changed
+- Switched to Typesafe config to manage language resources
+- Changed LangBundle interface
 
 ## [0.1] - 2015-12-02
 
