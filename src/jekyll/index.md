@@ -58,8 +58,8 @@ Add to your build.sbt file:
 
 Full API docs are available, for each published version:
 
-- [v0.2]({{ site.baseurl }}/api/v0.2/)
-- [v0.1]({{ site.baseurl }}/api/v0.1/)
+- [v0.2]({{ site.baseurl }}/v0.2/api)
+- [v0.1]({{ site.baseurl }}/v0.1/api)
 
 
 Developed with ❤️ at [People Pattern Corporation](https://peoplepattern.com)
