@@ -18,10 +18,13 @@ scalacOptions in ThisBuild ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "com.carrotsearch" % "langid-java" % "1.0.0",
-  "com.typesafe"     % "config"      % "1.3.0",
-  "org.scalatest"    %% "scalatest"  % "2.2.5" % "test"
+  "com.carrotsearch"     % "langid-java"     % "1.0.0",
+  "com.typesafe"         % "config"          % "1.3.0",
+  "com.atilika.kuromoji" % "kuromoji-ipadic" % "0.9.0",
+  "org.scalatest"        %% "scalatest"      % "2.2.5" % "test"
 )
+
+initialCommands := "import com.peoplepattern.text._"
 
 scalariformSettings
 
