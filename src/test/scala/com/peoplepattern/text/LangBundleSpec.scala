@@ -20,6 +20,26 @@ class LangBundleSpec extends FunSpec with Matchers {
     }
   }
 
+  for (lang <- LangBundle.langs) {
+    describe(s"LangBundle($lang)") {
+      it("should exist") {
+        assert(LangBundle(lang) != null)
+      }
+
+      it("should have non-empty stopwords") {
+        assert(LangBundle(lang).stopwords.nonEmpty)
+      }
+
+      it("should not have the same stoprowds as the unk language bundle") {
+        assert(LangBundle(lang).stopwords != LangBundle.unk.stopwords)
+      }
+
+      it(s"should be the same as LangBundle.bundleForLang($lang)") {
+        assert(LangBundle(lang) == LangBundle.bundleForLang(Some(lang)))
+      }
+    }
+  }
+
   describe("LangBundle(en).isHashtag") {
     it("should identify #this_is_the_best_day_EVER is a hashtag") {
       assert(LangBundle("en").isHashtag("#this_is_the_best_day_EVER"))
