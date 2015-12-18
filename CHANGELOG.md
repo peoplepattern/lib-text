@@ -1,5 +1,12 @@
 # Change Log
 
+## Unreleased
+
+### Changed
+
+- Fixed configuration error, restored support for Dutch, Portuguese, Swedish,
+  and Turkish
+
 ## [0.2] - 2015-12-10
 
 ### Added
