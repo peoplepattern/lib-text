@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+- Russian support
+- Japanese support
+
 ### Changed
 
 - Fixed configuration error, restored support for Dutch, Portuguese, Swedish,

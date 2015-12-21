@@ -262,16 +262,9 @@ object LangBundle {
     }
   }
 
-  // To update with custom language processing for, e.g. Japanese tokenization,
-  // do something like:
-  //
-  // val jaBundle = new LangBundle { /* custom stuff */ }
-  //
-  // private val langBundles: Map[String, LangBundle] =
-  //   langs.map { lang => lang -> mkBundle(lang) }.toMap + ("ja" -> jaBundle)
-
+  // Note how we're appending custom bundles
   private val langBundles: Map[String, LangBundle] =
-    langs.map { lang => lang -> mkBundle(lang) }.toMap
+    langs.map { lang => lang -> mkBundle(lang) }.toMap + ("ja" -> JaLangBundle)
 
   /**
    * Look up the [[LangBundle]] by language code
