@@ -37,7 +37,7 @@ Add to your project dependencies:
 ```scala
 resolvers += "peoplepattern" at "https://dl.bintray.com/peoplepattern/maven/"
 
-libraryDependencies += "com.peoplepattern" %% "lib-text" % "0.2"
+libraryDependencies += "com.peoplepattern" %% "lib-text" % "0.3"
 ```
 
 ## Example

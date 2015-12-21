@@ -30,7 +30,7 @@ Add to your build.sbt file:
 
     resolvers += "peoplepattern" at "https://dl.bintray.com/peoplepattern/maven/"
 
-    libraryDependencies += "com.peoplepattern" %% "lib-text" % "0.2"
+    libraryDependencies += "com.peoplepattern" %% "lib-text" % "0.3"
 
 ## Example
 
@@ -58,6 +58,7 @@ Add to your build.sbt file:
 
 Full API docs are available, for each published version:
 
+- [v0.3]({{ site.baseurl }}/v0.3/api)
 - [v0.2]({{ site.baseurl }}/v0.2/api)
 - [v0.1]({{ site.baseurl }}/v0.1/api)
 
