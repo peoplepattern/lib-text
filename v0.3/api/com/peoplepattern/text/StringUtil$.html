@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>LangBundle - com.peoplepattern.text.LangBundle</title>
-          <meta name="description" content="LangBundle - com.peoplepattern.text.LangBundle" />
-          <meta name="keywords" content="LangBundle com.peoplepattern.text.LangBundle" />
+          <title>StringUtil - com.peoplepattern.text.StringUtil</title>
+          <meta name="description" content="StringUtil - com.peoplepattern.text.StringUtil" />
+          <meta name="keywords" content="StringUtil com.peoplepattern.text.StringUtil" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
-            var hash = 'com.peoplepattern.text.LangBundle';
+            var hash = 'com.peoplepattern.text.StringUtil$';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -22,30 +22,26 @@
    	  </script>
     
         </head>
-        <body class="type">
+        <body class="value">
       <div id="definition">
-        <a href="LangBundle$.html" title="Go to companion"><img src="../../../lib/trait_to_object_big.png" /></a>
+        <img src="../../../lib/object_big.png" />
         <p id="owner"><a href="../../package.html" class="extype" name="com">com</a>.<a href="../package.html" class="extype" name="com.peoplepattern">peoplepattern</a>.<a href="package.html" class="extype" name="com.peoplepattern.text">text</a></p>
-        <h1><a href="LangBundle$.html" title="Go to companion">LangBundle</a></h1>
+        <h1>StringUtil</h1>
       </div>
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">LangBundle</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">StringUtil</span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Language-specific (or general) text processing utility
-</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div><div class="toggleContainer block">
-          <span class="toggle">Known Subclasses</span>
-          <div class="subClasses hiddenContent"><a href="JaLangBundle$.html" class="extype" name="com.peoplepattern.text.JaLangBundle">JaLangBundle</a></div>
         </div></div>
         
 
@@ -63,7 +59,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.peoplepattern.text.LangBundle"><span>LangBundle</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.peoplepattern.text.StringUtil"><span>StringUtil</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -85,26 +81,10 @@
 
         
 
-        <div id="values" class="values members">
-              <h3>Abstract Value Members</h3>
-              <ol><li name="com.peoplepattern.text.LangBundle#stopwords" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="stopwords:Set[String]"></a>
-      <a id="stopwords:Set[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">stopwords</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Language specific stopwords</p>
-    </li></ol>
-            </div>
+        
 
         <div id="values" class="values members">
-              <h3>Concrete Value Members</h3>
+              <h3>Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:AnyRef):Boolean"></a>
       <a id="!=(AnyRef):Boolean"></a>
@@ -183,6 +163,45 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.peoplepattern.text.StringUtil#asOpt" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="asOpt(s:String):Option[String]"></a>
+      <a id="asOpt(String):Option[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asOpt</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Convert a string to Some(s) if it's not blank or null, otherwise None</p>
+    </li><li name="com.peoplepattern.text.StringUtil#charBigrams" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="charBigrams(s:String):Map[String,Int]"></a>
+      <a id="charBigrams(String):Map[String,Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">charBigrams</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Counts of the character 2-grams in the string</p>
+    </li><li name="com.peoplepattern.text.StringUtil#charNgrams" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="charNgrams(s:String,min:Int,max:Int):Map[String,Int]"></a>
+      <a id="charNgrams(String,Int,Int):Map[String,Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">charNgrams</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="min">min: <span class="extype" name="scala.Int">Int</span></span>, <span name="max">max: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Counts of the character n-grams in the string</p>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -273,32 +292,19 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#isContentTerm" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="isContentTerm(term:String):Boolean"></a>
-      <a id="isContentTerm(String):Boolean"></a>
+    </li><li name="com.peoplepattern.text.StringUtil#isBlank" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="isBlank(s:String):Boolean"></a>
+      <a id="isBlank(String):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isContentTerm</span><span class="params">(<span name="term">term: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">isBlank</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Whether the string is probably a linguistic term with meaning</p>
-    </li><li name="com.peoplepattern.text.LangBundle#isHashtag" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="isHashtag(term:String):Boolean"></a>
-      <a id="isHashtag(String):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">isHashtag</span><span class="params">(<span name="term">term: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Whether the string can could be a social media hashtag</p>
+      <p class="shortcomment cmt">Determine if the string is null or only contains white-space</p>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -312,19 +318,19 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#isMention" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="isMention(term:String):Boolean"></a>
-      <a id="isMention(String):Boolean"></a>
+    </li><li name="com.peoplepattern.text.StringUtil#isUrl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="isUrl(s:String):Boolean"></a>
+      <a id="isUrl(String):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isMention</span><span class="params">(<span name="term">term: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">isUrl</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Whether the string could be a social media @-mention</p>
+      <p class="shortcomment cmt">Whether the string contains a URL</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -364,6 +370,37 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.peoplepattern.text.StringUtil#simplifyUrl" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="simplifyUrl(u:java.net.URL,prefix:Option[String],path:Int,keepProtocol:Boolean):String"></a>
+      <a id="simplifyUrl(URL,Option[String],Int,Boolean):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">simplifyUrl</span><span class="params">(<span name="u">u: <span class="extype" name="java.net.URL">URL</span></span>, <span name="prefix">prefix: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="path">path: <span class="extype" name="scala.Int">Int</span></span>, <span name="keepProtocol">keepProtocol: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Simplify a URL into something less unique
+</p><div class="fullcomment"><div class="comment cmt"><p>Simplify a URL into something less unique
+</p></div><dl class="paramcmts block"><dt class="param">u</dt><dd class="cmt"><p>the URL</p></dd><dt class="param">prefix</dt><dd class="cmt"><p>prefix to append to the simplified URL, e.g. &quot;url:&quot;</p></dd><dt class="param">path</dt><dd class="cmt"><p>the number of parts of the path to keep, e.g. with path = 2 &quot;video/technology/2015&quot; -&gt; &quot;video/technology&quot;</p></dd><dt class="param">keepProtocol</dt><dd class="cmt"><p>if true, keep the &quot;http&quot; or &quot;https&quot; part of the URL
+</p></dd></dl></div>
+    </li><li name="com.peoplepattern.text.StringUtil#simplifyUrl" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="simplifyUrl(u:java.net.URL):String"></a>
+      <a id="simplifyUrl(URL):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">simplifyUrl</span><span class="params">(<span name="u">u: <span class="extype" name="java.net.URL">URL</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Simplify a URL into something less unique</p><div class="fullcomment"><div class="comment cmt"><p>Simplify a URL into something less unique</p><p>Eg simplifyUrl(http://money.cnn.com/video/technology/2015/11/30/tech-gift-guide-selfie-gadgets.cnnmoney/index.html)
+is simplified to money.cnn.com/video
+</p></div></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -377,156 +414,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#termBigrams" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="termBigrams(tokens:Seq[String]):Set[String]"></a>
-      <a id="termBigrams(Seq[String]):Set[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">termBigrams</span><span class="params">(<span name="tokens">tokens: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Extract the set of term-only bigrams from the token sequence</p><div class="fullcomment"><div class="comment cmt"><p>Extract the set of term-only bigrams from the token sequence</p><p>For example from the text &quot;this is the winning team&quot; only the bigram
-&quot;winning team&quot; would be extracted
-</p></div><dl class="paramcmts block"><dt class="param">tokens</dt><dd class="cmt"><p>the token sequence to extract n-grams from
-</p></dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#termBigrams" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="termBigrams(text:String):Set[String]"></a>
-      <a id="termBigrams(String):Set[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">termBigrams</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Extract the set of term-only bigrams from the text</p><div class="fullcomment"><div class="comment cmt"><p>Extract the set of term-only bigrams from the text</p><p>For example from the text &quot;this is the winning team&quot; only the bigram
-&quot;winning team&quot; would be extracted
-</p></div><dl class="paramcmts block"><dt class="param">text</dt><dd class="cmt"><p>the text to extract n-grams from
-</p></dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#termNgrams" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="termNgrams(tokens:Seq[String],min:Int,max:Int):Set[String]"></a>
-      <a id="termNgrams(Seq[String],Int,Int):Set[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">termNgrams</span><span class="params">(<span name="tokens">tokens: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="min">min: <span class="extype" name="scala.Int">Int</span></span>, <span name="max">max: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Extract the set of term-only n-grams from the token sequence</p><div class="fullcomment"><div class="comment cmt"><p>Extract the set of term-only n-grams from the token sequence</p><p>For example from the text &quot;this is the winning team&quot; only the bigram
-&quot;winning team&quot; would be extracted
-</p></div><dl class="paramcmts block"><dt class="param">tokens</dt><dd class="cmt"><p>the token sequence to extract n-grams from</p></dd><dt class="param">min</dt><dd class="cmt"><p>the minimum length of extracted n-grams</p></dd><dt class="param">max</dt><dd class="cmt"><p>the maximum length of extracted n-grams
-</p></dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#termNgrams" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="termNgrams(text:String,min:Int,max:Int):Set[String]"></a>
-      <a id="termNgrams(String,Int,Int):Set[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">termNgrams</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="min">min: <span class="extype" name="scala.Int">Int</span></span>, <span name="max">max: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Extract the set of term-only n-grams from the text</p><div class="fullcomment"><div class="comment cmt"><p>Extract the set of term-only n-grams from the text</p><p>For example from the text &quot;this is the winning team&quot; only the bigram
-&quot;winning team&quot; would be extracted
-</p></div><dl class="paramcmts block"><dt class="param">text</dt><dd class="cmt"><p>the text to extract n-grams from</p></dd><dt class="param">min</dt><dd class="cmt"><p>the minimum length of extracted n-grams</p></dd><dt class="param">max</dt><dd class="cmt"><p>the maximum length of extracted n-grams
-</p></dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#termTrigrams" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="termTrigrams(tokens:Seq[String]):Set[String]"></a>
-      <a id="termTrigrams(Seq[String]):Set[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">termTrigrams</span><span class="params">(<span name="tokens">tokens: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Extract the set of term-only bigrams from the text</p><div class="fullcomment"><div class="comment cmt"><p>Extract the set of term-only bigrams from the text</p><p>For example from the text &quot;this is red sox nation&quot; only the trigram
-&quot;red sox nation&quot; would be extracted
-</p></div><dl class="paramcmts block"><dt class="param">tokens</dt><dd class="cmt"><p>the token sequence to extract n-grams from
-</p></dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#termTrigrams" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="termTrigrams(text:String):Set[String]"></a>
-      <a id="termTrigrams(String):Set[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">termTrigrams</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Extract the set of term-only bigrams from the text</p><div class="fullcomment"><div class="comment cmt"><p>Extract the set of term-only bigrams from the text</p><p>For example from the text &quot;this is red sox nation&quot; only the trigram
-&quot;red sox nation&quot; would be extracted
-</p></div><dl class="paramcmts block"><dt class="param">text</dt><dd class="cmt"><p>the text to extract n-grams from
-</p></dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#terms" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="terms(tokens:Seq[String]):Set[String]"></a>
-      <a id="terms(Seq[String]):Set[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">terms</span><span class="params">(<span name="tokens">tokens: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Extract terms from the sequence of tokens</p>
-    </li><li name="com.peoplepattern.text.LangBundle#terms" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="terms(text:String):Set[String]"></a>
-      <a id="terms(String):Set[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">terms</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Tokenize the string and extract the set of terms</p>
-    </li><li name="com.peoplepattern.text.LangBundle#termsPlus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="termsPlus(tokens:Seq[String]):Set[String]"></a>
-      <a id="termsPlus(Seq[String]):Set[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">termsPlus</span><span class="params">(<span name="tokens">tokens: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Extract terms plus hashtags, emoji, @-mentions from the token sequence
-</p>
-    </li><li name="com.peoplepattern.text.LangBundle#termsPlus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="termsPlus(text:String):Set[String]"></a>
-      <a id="termsPlus(String):Set[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">termsPlus</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Tokenize the string and extract terms plus hashtags, emoji, @-mentions
-</p>
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>
@@ -540,22 +427,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#tokens" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="tokens(text:String):Vector[String]"></a>
-      <a id="tokens(String):Vector[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">tokens</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Parse text into an array of String
-</p><div class="fullcomment"><div class="comment cmt"><p>Parse text into an array of String
-</p></div><dl class="paramcmts block"><dt class="param">text</dt><dd class="cmt"><p>text to tokenize
-</p></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>

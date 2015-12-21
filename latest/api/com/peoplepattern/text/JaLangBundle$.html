@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>LangBundle - com.peoplepattern.text.LangBundle</title>
-          <meta name="description" content="LangBundle - com.peoplepattern.text.LangBundle" />
-          <meta name="keywords" content="LangBundle com.peoplepattern.text.LangBundle" />
+          <title>JaLangBundle - com.peoplepattern.text.JaLangBundle</title>
+          <meta name="description" content="JaLangBundle - com.peoplepattern.text.JaLangBundle" />
+          <meta name="keywords" content="JaLangBundle com.peoplepattern.text.JaLangBundle" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
-            var hash = 'com.peoplepattern.text.LangBundle';
+            var hash = 'com.peoplepattern.text.JaLangBundle$';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -22,30 +22,27 @@
    	  </script>
     
         </head>
-        <body class="type">
+        <body class="value">
       <div id="definition">
-        <a href="LangBundle$.html" title="Go to companion"><img src="../../../lib/trait_to_object_big.png" /></a>
+        <img src="../../../lib/object_big.png" />
         <p id="owner"><a href="../../package.html" class="extype" name="com">com</a>.<a href="../package.html" class="extype" name="com.peoplepattern">peoplepattern</a>.<a href="package.html" class="extype" name="com.peoplepattern.text">text</a></p>
-        <h1><a href="LangBundle$.html" title="Go to companion">LangBundle</a></h1>
+        <h1>JaLangBundle</h1>
       </div>
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">LangBundle</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">JaLangBundle</span><span class="result"> extends <a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Language-specific (or general) text processing utility
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Custom language bundle for Japanese</p><p>Uses Kuromoji for tokenization https://github.com/atilika/kuromoji
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div><div class="toggleContainer block">
-          <span class="toggle">Known Subclasses</span>
-          <div class="subClasses hiddenContent"><a href="JaLangBundle$.html" class="extype" name="com.peoplepattern.text.JaLangBundle">JaLangBundle</a></div>
+          <div class="superTypes hiddenContent"><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -63,7 +60,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.peoplepattern.text.LangBundle"><span>LangBundle</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.peoplepattern.text.JaLangBundle"><span>JaLangBundle</span></li><li class="in" name="com.peoplepattern.text.LangBundle"><span>LangBundle</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -85,26 +82,10 @@
 
         
 
-        <div id="values" class="values members">
-              <h3>Abstract Value Members</h3>
-              <ol><li name="com.peoplepattern.text.LangBundle#stopwords" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="stopwords:Set[String]"></a>
-      <a id="stopwords:Set[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">stopwords</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Language specific stopwords</p>
-    </li></ol>
-            </div>
+        
 
         <div id="values" class="values members">
-              <h3>Concrete Value Members</h3>
+              <h3>Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:AnyRef):Boolean"></a>
       <a id="!=(AnyRef):Boolean"></a>
@@ -273,7 +254,7 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#isContentTerm" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.peoplepattern.text.LangBundle#isContentTerm" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isContentTerm(term:String):Boolean"></a>
       <a id="isContentTerm(String):Boolean"></a>
       <h4 class="signature">
@@ -285,8 +266,8 @@
         <span class="name">isContentTerm</span><span class="params">(<span name="term">term: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Whether the string is probably a linguistic term with meaning</p>
-    </li><li name="com.peoplepattern.text.LangBundle#isHashtag" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Whether the string is probably a linguistic term with meaning</p><div class="fullcomment"><div class="comment cmt"><p>Whether the string is probably a linguistic term with meaning</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
+    </li><li name="com.peoplepattern.text.LangBundle#isHashtag" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isHashtag(term:String):Boolean"></a>
       <a id="isHashtag(String):Boolean"></a>
       <h4 class="signature">
@@ -298,7 +279,7 @@
         <span class="name">isHashtag</span><span class="params">(<span name="term">term: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Whether the string can could be a social media hashtag</p>
+      <p class="shortcomment cmt">Whether the string can could be a social media hashtag</p><div class="fullcomment"><div class="comment cmt"><p>Whether the string can could be a social media hashtag</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -312,7 +293,7 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#isMention" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.peoplepattern.text.LangBundle#isMention" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isMention(term:String):Boolean"></a>
       <a id="isMention(String):Boolean"></a>
       <h4 class="signature">
@@ -324,7 +305,21 @@
         <span class="name">isMention</span><span class="params">(<span name="term">term: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Whether the string could be a social media @-mention</p>
+      <p class="shortcomment cmt">Whether the string could be a social media @-mention</p><div class="fullcomment"><div class="comment cmt"><p>Whether the string could be a social media @-mention</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
+    </li><li name="com.peoplepattern.text.JaLangBundle#jatokens" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="jatokens(text:String):Vector[String]"></a>
+      <a id="jatokens(String):Vector[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">jatokens</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Pure japanese text tokenization using Kuromoji
+</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -364,6 +359,19 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.peoplepattern.text.JaLangBundle#stopwords" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stopwords:Set[String]"></a>
+      <a id="stopwords:Set[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stopwords</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Language specific stopwords</p><div class="fullcomment"><div class="comment cmt"><p>Language specific stopwords</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.peoplepattern.text.JaLangBundle">JaLangBundle</a> → <a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -392,7 +400,7 @@
       <p class="shortcomment cmt">Extract the set of term-only bigrams from the token sequence</p><div class="fullcomment"><div class="comment cmt"><p>Extract the set of term-only bigrams from the token sequence</p><p>For example from the text &quot;this is the winning team&quot; only the bigram
 &quot;winning team&quot; would be extracted
 </p></div><dl class="paramcmts block"><dt class="param">tokens</dt><dd class="cmt"><p>the token sequence to extract n-grams from
-</p></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
     </li><li name="com.peoplepattern.text.LangBundle#termBigrams" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="termBigrams(text:String):Set[String]"></a>
       <a id="termBigrams(String):Set[String]"></a>
@@ -408,7 +416,7 @@
       <p class="shortcomment cmt">Extract the set of term-only bigrams from the text</p><div class="fullcomment"><div class="comment cmt"><p>Extract the set of term-only bigrams from the text</p><p>For example from the text &quot;this is the winning team&quot; only the bigram
 &quot;winning team&quot; would be extracted
 </p></div><dl class="paramcmts block"><dt class="param">text</dt><dd class="cmt"><p>the text to extract n-grams from
-</p></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
     </li><li name="com.peoplepattern.text.LangBundle#termNgrams" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="termNgrams(tokens:Seq[String],min:Int,max:Int):Set[String]"></a>
       <a id="termNgrams(Seq[String],Int,Int):Set[String]"></a>
@@ -424,7 +432,7 @@
       <p class="shortcomment cmt">Extract the set of term-only n-grams from the token sequence</p><div class="fullcomment"><div class="comment cmt"><p>Extract the set of term-only n-grams from the token sequence</p><p>For example from the text &quot;this is the winning team&quot; only the bigram
 &quot;winning team&quot; would be extracted
 </p></div><dl class="paramcmts block"><dt class="param">tokens</dt><dd class="cmt"><p>the token sequence to extract n-grams from</p></dd><dt class="param">min</dt><dd class="cmt"><p>the minimum length of extracted n-grams</p></dd><dt class="param">max</dt><dd class="cmt"><p>the maximum length of extracted n-grams
-</p></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
     </li><li name="com.peoplepattern.text.LangBundle#termNgrams" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="termNgrams(text:String,min:Int,max:Int):Set[String]"></a>
       <a id="termNgrams(String,Int,Int):Set[String]"></a>
@@ -440,7 +448,7 @@
       <p class="shortcomment cmt">Extract the set of term-only n-grams from the text</p><div class="fullcomment"><div class="comment cmt"><p>Extract the set of term-only n-grams from the text</p><p>For example from the text &quot;this is the winning team&quot; only the bigram
 &quot;winning team&quot; would be extracted
 </p></div><dl class="paramcmts block"><dt class="param">text</dt><dd class="cmt"><p>the text to extract n-grams from</p></dd><dt class="param">min</dt><dd class="cmt"><p>the minimum length of extracted n-grams</p></dd><dt class="param">max</dt><dd class="cmt"><p>the maximum length of extracted n-grams
-</p></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
     </li><li name="com.peoplepattern.text.LangBundle#termTrigrams" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="termTrigrams(tokens:Seq[String]):Set[String]"></a>
       <a id="termTrigrams(Seq[String]):Set[String]"></a>
@@ -456,7 +464,7 @@
       <p class="shortcomment cmt">Extract the set of term-only bigrams from the text</p><div class="fullcomment"><div class="comment cmt"><p>Extract the set of term-only bigrams from the text</p><p>For example from the text &quot;this is red sox nation&quot; only the trigram
 &quot;red sox nation&quot; would be extracted
 </p></div><dl class="paramcmts block"><dt class="param">tokens</dt><dd class="cmt"><p>the token sequence to extract n-grams from
-</p></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
     </li><li name="com.peoplepattern.text.LangBundle#termTrigrams" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="termTrigrams(text:String):Set[String]"></a>
       <a id="termTrigrams(String):Set[String]"></a>
@@ -472,8 +480,8 @@
       <p class="shortcomment cmt">Extract the set of term-only bigrams from the text</p><div class="fullcomment"><div class="comment cmt"><p>Extract the set of term-only bigrams from the text</p><p>For example from the text &quot;this is red sox nation&quot; only the trigram
 &quot;red sox nation&quot; would be extracted
 </p></div><dl class="paramcmts block"><dt class="param">text</dt><dd class="cmt"><p>the text to extract n-grams from
-</p></dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#terms" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
+    </li><li name="com.peoplepattern.text.LangBundle#terms" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="terms(tokens:Seq[String]):Set[String]"></a>
       <a id="terms(Seq[String]):Set[String]"></a>
       <h4 class="signature">
@@ -485,8 +493,8 @@
         <span class="name">terms</span><span class="params">(<span name="tokens">tokens: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Extract terms from the sequence of tokens</p>
-    </li><li name="com.peoplepattern.text.LangBundle#terms" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Extract terms from the sequence of tokens</p><div class="fullcomment"><div class="comment cmt"><p>Extract terms from the sequence of tokens</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
+    </li><li name="com.peoplepattern.text.LangBundle#terms" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="terms(text:String):Set[String]"></a>
       <a id="terms(String):Set[String]"></a>
       <h4 class="signature">
@@ -498,8 +506,8 @@
         <span class="name">terms</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Tokenize the string and extract the set of terms</p>
-    </li><li name="com.peoplepattern.text.LangBundle#termsPlus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Tokenize the string and extract the set of terms</p><div class="fullcomment"><div class="comment cmt"><p>Tokenize the string and extract the set of terms</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
+    </li><li name="com.peoplepattern.text.LangBundle#termsPlus" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="termsPlus(tokens:Seq[String]):Set[String]"></a>
       <a id="termsPlus(Seq[String]):Set[String]"></a>
       <h4 class="signature">
@@ -512,8 +520,9 @@
       </span>
       </h4>
       <p class="shortcomment cmt">Extract terms plus hashtags, emoji, @-mentions from the token sequence
-</p>
-    </li><li name="com.peoplepattern.text.LangBundle#termsPlus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+</p><div class="fullcomment"><div class="comment cmt"><p>Extract terms plus hashtags, emoji, @-mentions from the token sequence
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
+    </li><li name="com.peoplepattern.text.LangBundle#termsPlus" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="termsPlus(text:String):Set[String]"></a>
       <a id="termsPlus(String):Set[String]"></a>
       <h4 class="signature">
@@ -526,7 +535,8 @@
       </span>
       </h4>
       <p class="shortcomment cmt">Tokenize the string and extract terms plus hashtags, emoji, @-mentions
-</p>
+</p><div class="fullcomment"><div class="comment cmt"><p>Tokenize the string and extract terms plus hashtags, emoji, @-mentions
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>
@@ -540,7 +550,7 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.peoplepattern.text.LangBundle#tokens" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.peoplepattern.text.JaLangBundle#tokens" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="tokens(text:String):Vector[String]"></a>
       <a id="tokens(String):Vector[String]"></a>
       <h4 class="signature">
@@ -555,7 +565,7 @@
       <p class="shortcomment cmt">Parse text into an array of String
 </p><div class="fullcomment"><div class="comment cmt"><p>Parse text into an array of String
 </p></div><dl class="paramcmts block"><dt class="param">text</dt><dd class="cmt"><p>text to tokenize
-</p></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.peoplepattern.text.JaLangBundle">JaLangBundle</a> → <a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -622,7 +632,9 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="com.peoplepattern.text.LangBundle">
+              <h3>Inherited from <a href="LangBundle.html" class="extype" name="com.peoplepattern.text.LangBundle">LangBundle</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
