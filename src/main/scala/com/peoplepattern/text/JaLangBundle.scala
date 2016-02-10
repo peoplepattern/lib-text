@@ -11,7 +11,8 @@ import com.atilika.kuromoji.ipadic.Tokenizer
  */
 object JaLangBundle extends LangBundle {
 
-  val stopwords = LangBundle.stopwords("ja")
+  lazy val stopwords = LangBundle.stopwords("ja")
+  lazy val tokenizer = new Tokenizer
 
   /**
    * Whether the char is in the ASCII range
@@ -41,7 +42,6 @@ object JaLangBundle extends LangBundle {
    * Pure japanese text tokenization using Kuromoji
    */
   def jatokens(text: String): Vector[String] = {
-    val tokenizer = new Tokenizer
     tokenizer.tokenize(text).asScala.toVector.map(_.getSurface)
   }
 
