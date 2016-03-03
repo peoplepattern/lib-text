@@ -1,6 +1,7 @@
 package com.peoplepattern.text
 
 import org.scalatest._
+import java.io._
 
 class JaLangBundleSpec extends FlatSpec {
 
@@ -38,5 +39,27 @@ class JaLangBundleSpec extends FlatSpec {
     val text = "ブログ更新☆ 「第5回東京ガールギークディナー」で女性の役に立つお話を聞いてきたよ #TGGD: テック系女子のイベントで女性のキャリアや考え方に役立つお話を聞いてきましたよ。ふむふむ＆あるある！という感じでとても楽しい... http://bit.ly/16bZHC5 "
     val expected = Vector("ブログ", "更新", "☆", "「", "第", "5", "回", "東京", "ガールギークディナー", "」", "で", "女性", "の", "役に立つ", "お話", "を", "聞い", "て", "き", "た", "よ", "#TGGD", ":", "テック", "系", "女子", "の", "イベント", "で", "女性", "の", "キャリア", "や", "考え方", "に", "役立つ", "お話", "を", "聞い", "て", "き", "まし", "た", "よ", "。", "ふむふむ", "＆", "ある", "ある", "！", "という", "感じ", "で", "とても", "楽しい", "...", "http://bit.ly/16bZHC5")
     assert(JaLangBundle.tokens(text) == expected)
+  }
+
+  it should "serliaize OK" in {
+    val original = JaLangBundle
+    val bos = new ByteArrayOutputStream()
+    val bytes = try {
+      val oos = new ObjectOutputStream(bos)
+      oos.writeObject(original)
+      bos.toByteArray
+    } finally {
+      bos.close()
+    }
+    val bis = new ByteArrayInputStream(bytes)
+    val unmarshalled = try {
+      val ois = new ObjectInputStream(bis)
+      ois.readObject.asInstanceOf[LangBundle]
+    } finally {
+      bis.close()
+    }
+    assert(original.stopwords == unmarshalled.stopwords)
+    val tweet = "究極サンタサクヤちゃんの画面写真です！！！#パズドラ "
+    assert(original.termsPlus(tweet) == unmarshalled.termsPlus(tweet))
   }
 }

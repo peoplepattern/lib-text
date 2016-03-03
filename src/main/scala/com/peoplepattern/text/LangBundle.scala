@@ -218,22 +218,17 @@ object LangBundle {
   import com.typesafe.config.ConfigFactory
   import scala.collection.JavaConversions._
 
+  @SerialVersionUID(1)
+  class BasicLangBundle(val stopwords: Set[String])
+    extends LangBundle with Serializable
+
   val conf = ConfigFactory.load
 
-  private def chkLangCode(code: String) {
-    require("^[a-z]{2}$".r.pattern.matcher(code).matches)
-  }
-
   def stopwords(lang: String): Set[String] = {
-    chkLangCode(lang)
     Set(conf.getStringList(s"lang.$lang.stopwords"): _*)
   }
 
-  def mkBundle(lang: String) = {
-    new LangBundle {
-      lazy val stopwords = LangBundle.stopwords(lang)
-    }
-  }
+  def mkBundle(lang: String) = new BasicLangBundle(LangBundle.stopwords(lang))
 
   private val LangRegx = """^([a-z][a-z])\.stopwords$""".r
 
@@ -255,15 +250,10 @@ object LangBundle {
    *
    * Uses all known stopwords
    */
-  lazy val unk = {
-    val stops: Set[String] = langs.flatMap(stopwords)
-    new LangBundle {
-      val stopwords = stops
-    }
-  }
+  lazy val unk = new BasicLangBundle(langs.flatMap(stopwords))
 
   // Note how we're appending custom bundles
-  private val langBundles: Map[String, LangBundle] =
+  private lazy val langBundles: Map[String, LangBundle] =
     langs.map { lang => lang -> mkBundle(lang) }.toMap + ("ja" -> JaLangBundle)
 
   /**
@@ -272,7 +262,6 @@ object LangBundle {
    * @param langCode two-letter ISO 639-1 language code
    */
   def apply(langCode: String) = {
-    chkLangCode(langCode)
     langBundles.getOrElse(langCode, unk)
   }
 
@@ -281,8 +270,6 @@ object LangBundle {
    *
    * @param lang two-letter ISO 639-1 language code or None
    */
-  def bundleForLang(lang: Option[String]): LangBundle = lang match {
-    case Some(lang) => apply(lang)
-    case None => unk
-  }
+  def bundleForLang(lang: Option[String]): LangBundle =
+    lang.map(apply).getOrElse(unk)
 }
