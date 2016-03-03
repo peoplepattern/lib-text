@@ -2,6 +2,7 @@ package com.peoplepattern.text
 
 // ScalaTest
 import org.scalatest._
+import java.io._
 
 class LangBundleSpec extends FunSpec with Matchers {
   describe("LangBundle") {
@@ -161,6 +162,30 @@ class LangBundleSpec extends FunSpec with Matchers {
 
       assert(LangBundle("en").termTrigrams(tweet) === expected)
       assert(LangBundle("en").termTrigrams(LangBundle("en").tokens(tweet)) === expected)
+    }
+  }
+
+  describe("BasicLangBundle") {
+    it("serializes OK") {
+      val original = new LangBundle.BasicLangBundle(Set("this", "is", "a", "the", "ok"))
+      val bos = new ByteArrayOutputStream()
+      val bytes = try {
+        val oos = new ObjectOutputStream(bos)
+        oos.writeObject(original)
+        bos.toByteArray
+      } finally {
+        bos.close()
+      }
+      val bis = new ByteArrayInputStream(bytes)
+      val unmarshalled = try {
+        val ois = new ObjectInputStream(bis)
+        ois.readObject.asInstanceOf[LangBundle]
+      } finally {
+        bis.close()
+      }
+      assert(original.stopwords == unmarshalled.stopwords)
+      val tweet = "Gronk makes history: 1st player to have multiple games of 3 or more receiving TDs @RobGronkowski #crazyfootballmomma  @NFL 🔥🏈🔥🏈 #ballout"
+      assert(original.termsPlus(tweet) == unmarshalled.termsPlus(tweet))
     }
   }
 }
