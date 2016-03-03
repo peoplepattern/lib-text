@@ -9,10 +9,11 @@ import com.atilika.kuromoji.ipadic.Tokenizer
  *
  * Uses Kuromoji for tokenization https://github.com/atilika/kuromoji
  */
-object JaLangBundle extends LangBundle {
+@SerialVersionUID(1)
+class JaLangBundle(val stopwords: Set[String])
+    extends LangBundle with Serializable {
 
-  lazy val stopwords = LangBundle.stopwords("ja")
-  lazy val tokenizer = new Tokenizer
+  @transient lazy val tokenizer = new Tokenizer
 
   /**
    * Whether the char is in the ASCII range
@@ -79,3 +80,5 @@ object JaLangBundle extends LangBundle {
     }
   }
 }
+
+object JaLangBundle extends JaLangBundle(LangBundle.stopwords("ja"))

@@ -78,7 +78,8 @@ trait LanguageIdentifier {
     classify(text, defaultThreshold, defaultMinTextSize)
 }
 
-object LanguageIdentifier extends LanguageIdentifier {
+@SerialVersionUID(1)
+object LanguageIdentifier extends LanguageIdentifier with Serializable {
 
   private val config = ConfigFactory.load
 
@@ -86,7 +87,7 @@ object LanguageIdentifier extends LanguageIdentifier {
   lazy val defaultFrequency = config.getDouble("lang.classify.default_frequency")
   lazy val defaultMinTextSize = config.getInt("lang.classify.min_text_size")
 
-  val model = Model.defaultModel
+  @transient lazy val model = Model.defaultModel
 
   def summarize(
     texts: TraversableOnce[String],
