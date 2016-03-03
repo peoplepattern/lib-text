@@ -26,6 +26,14 @@ class LanguageIdentifierSpec extends FlatSpec {
     assert(sum(1)._3 == 0.4)
   }
 
+  it should "return no predictions with high threshold" in {
+    assert(impl.classify(enTxt, 1.0, 10) == None)
+  }
+
+  it should "return no predicitons when text is too short" in {
+    assert(impl.classify(enTxt, 0.5, 100) == None)
+  }
+
   it should "serialize OK" in {
     val original = LanguageIdentifier
     val bos = new ByteArrayOutputStream()
