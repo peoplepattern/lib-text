@@ -160,9 +160,16 @@ class StringUtilSpec extends FlatSpec {
   }
 
   it should "support path > 1" in {
+    assert(StringUtil.simplifyUrl(new URL("http://google.com"), prefix = None, path = 3, keepProtocol = false) == "google.com")
     assert(StringUtil.simplifyUrl(new URL(cnnUrlNoQuery), prefix = None, path = 3, keepProtocol = false) == "money.cnn.com/video/technology/2015")
     assert(StringUtil.simplifyUrl(new URL(dollarShaveClubUrl), prefix = None, path = 3, keepProtocol = false) == "try.dollarshaveclub.com/disrupt-out-desk5")
     assert(StringUtil.simplifyUrl(new URL(githubUrlWithSsl), prefix = None, path = 3, keepProtocol = false) == "peoplepattern.github.io/lib-text")
+  }
+
+  it should "support path == 0" in {
+    assert(StringUtil.simplifyUrl(new URL(cnnUrlNoQuery), prefix = None, path = 0, keepProtocol = false) == "money.cnn.com")
+    assert(StringUtil.simplifyUrl(new URL(dollarShaveClubUrl), prefix = None, path = 0, keepProtocol = false) == "try.dollarshaveclub.com")
+    assert(StringUtil.simplifyUrl(new URL(githubUrlWithSsl), prefix = None, path = 0, keepProtocol = false) == "peoplepattern.github.io")
   }
 
   it should "add a prefix if applicable" in {
